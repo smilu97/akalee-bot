@@ -5,7 +5,9 @@ import discord
 
 from minecraft import \
     get_minecraft_status_message, \
-    get_minecraft_ping_message
+    get_minecraft_ping_message, \
+    get_minecraft_open_message, \
+    get_minecraft_close_message
 
 def get_hello_message(): return 'Hello!'
 
@@ -15,8 +17,12 @@ responders = {
     "hello": get_hello_message,
     "minecraft-status": get_minecraft_status_message,
     "minecraft-ping": get_minecraft_ping_message,
+    "minecraft-open": get_minecraft_open_message,
+    "minecraft-close": get_minecraft_close_message,
     "mcs": get_minecraft_status_message,
     "mcp": get_minecraft_ping_message,
+    "mco": get_minecraft_open_message,
+    "mcc": get_minecraft_close_message,
 }
 
 @client.event

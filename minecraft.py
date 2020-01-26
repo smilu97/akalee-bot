@@ -1,10 +1,17 @@
 import json
+import os
 
 from mcstatus import MinecraftServer
 
 server = MinecraftServer.lookup('15.165.167.41:25565')
 
 MSG_SERVER_IS_DEAD = 'The server is dead'
+
+def open_minecraft():
+    os.popen('tmux new -d -s minecraft /home/ubuntu/run.sh')
+
+def close_minecraft():
+    os.popen('tmux kill-session -t minecraft')
 
 def check_server_dead():
     try:
@@ -38,5 +45,13 @@ def get_minecraft_query_message():
     if check_server_dead(): return MSG_SERVER_IS_DEAD
     query = get_minecraft_query()
     message = "The server has the following players online: {0}".format(", ".join(query.players.names))
-
     return message
+
+def get_minecraft_open_message():
+    open_minecraft()
+    return 'Attempted to open minecraft server'
+
+def get_minecraft_close_message():
+    close_minecraft()
+    return 'Attempted to close minecraft server'
+    
