@@ -15,6 +15,8 @@ responders = {
     "hello": get_hello_message,
     "minecraft-status": get_minecraft_status_message,
     "minecraft-ping": get_minecraft_ping_message,
+    "mcs": get_minecraft_status_message,
+    "mcp": get_minecraft_ping_message,
 }
 
 @client.event
