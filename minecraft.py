@@ -3,7 +3,9 @@ import os
 
 from mcstatus import MinecraftServer
 
-server = MinecraftServer.lookup('15.165.167.41:25565')
+HOST = "15.165.167.41:25565"
+
+server = MinecraftServer.lookup(HOST)
 
 MSG_SERVER_IS_DEAD = 'The server is dead'
 
@@ -50,7 +52,7 @@ def get_minecraft_query_message():
 def get_minecraft_host_message():
     if check_server_dead(): return MSG_SERVER_IS_DEAD
     query = get_minecraft_query()
-    message = "The Host: 15.165.167.41:25565"
+    message = f"The Host: {HOST}"
     return message
 
 def get_minecraft_open_message():
