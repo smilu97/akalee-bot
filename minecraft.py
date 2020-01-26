@@ -51,7 +51,6 @@ def get_minecraft_query_message():
 
 def get_minecraft_host_message():
     if check_server_dead(): return MSG_SERVER_IS_DEAD
-    query = get_minecraft_query()
     message = f"The Host: {HOST}"
     return message
 
