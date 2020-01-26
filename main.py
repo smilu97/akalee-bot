@@ -7,7 +7,8 @@ from minecraft import \
     get_minecraft_status_message, \
     get_minecraft_ping_message, \
     get_minecraft_open_message, \
-    get_minecraft_close_message
+    get_minecraft_close_message, \
+    get_minecraft_host_message
 
 def get_hello_message(): return 'Hello!'
 
@@ -19,10 +20,12 @@ responders = {
     "minecraft-ping": get_minecraft_ping_message,
     "minecraft-open": get_minecraft_open_message,
     "minecraft-close": get_minecraft_close_message,
+    "minecraft-host": get_minecraft_host_message,
     "mcs": get_minecraft_status_message,
     "mcp": get_minecraft_ping_message,
     "mco": get_minecraft_open_message,
     "mcc": get_minecraft_close_message,
+    "mch": get_minecraft_host_message,
 }
 
 @client.event
