@@ -47,6 +47,12 @@ def get_minecraft_query_message():
     message = f"The server has the following players online: {', '.join(query.players.names)}"
     return message
 
+def get_minecraft_host_message():
+    if check_server_dead(): return MSG_SERVER_IS_DEAD
+    query = get_minecraft_query()
+    message = "The Host: 15.165.167.41:25565"
+    return message
+
 def get_minecraft_open_message():
     open_minecraft()
     return 'Attempted to open minecraft server'
