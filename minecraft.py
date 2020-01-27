@@ -3,7 +3,9 @@ import os
 
 from mcstatus import MinecraftServer
 
-server = MinecraftServer.lookup('15.165.167.41:25565')
+HOST = "15.165.167.41:25565"
+
+server = MinecraftServer.lookup(HOST)
 
 MSG_SERVER_IS_DEAD = 'The server is dead'
 
@@ -32,19 +34,24 @@ def get_minecraft_query():
 def get_minecraft_status_message():
     if check_server_dead(): return MSG_SERVER_IS_DEAD
     status = get_minecraft_status()
-    message = "The server has {0} players and replied in {1} ms".format(status.players.online, status.latency)
+    message = f"The server has {status.players.online} players and replied in {status.latency} ms"
     return message
 
 def get_minecraft_ping_message():
     if check_server_dead(): return MSG_SERVER_IS_DEAD
     ping = get_minecraft_ping()
-    message = "The server replied in {0} ms".format(ping)    
+    message = f"The server replied in {ping} ms"
     return message
 
 def get_minecraft_query_message():
     if check_server_dead(): return MSG_SERVER_IS_DEAD
     query = get_minecraft_query()
-    message = "The server has the following players online: {0}".format(", ".join(query.players.names))
+    message = f"The server has the following players online: {', '.join(query.players.names)}"
+    return message
+
+def get_minecraft_host_message():
+    if check_server_dead(): return MSG_SERVER_IS_DEAD
+    message = f"The Host: {HOST}"
     return message
 
 def get_minecraft_open_message():
